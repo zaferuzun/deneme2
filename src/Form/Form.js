@@ -5,29 +5,42 @@ class  Form extends Component{
 {
   super(props);
     //fonksiyon bind
-  this.onChange=this.onChange.bind(this);
+    this.state={
+      definations:''
+    };
 
-  this.state={
-    definations:""
-  };
+  this.onChange=this.onChange.bind(this);
+  this.onSubmit=this.onSubmit.bind(this);
+
 }
+
 onChange(e)
 {
   this.setState(
     {
-      [e.target.name]:e.target.value
+      definations:e.target.value
     }
-  )
+  );
+  //console.log(this.state.definations);
+}
+onSubmit(e)
+{
+  e.preventDefault();
+  this.props.addTask(
+    {
+      ...this.state
+    }
+  );
+  
+
 }
   render()
   {
     return (
-      <div className="App">
-        <input onChange={this.onChange} value={this.state.definations}>
+      <div className="Form">
+        <input name="definations" onChange={this.onChange} value={this.state.definations}/>
 
-        </input>
-        <button>
-        asdasd
+        <button onClick={this.onSubmit}>
         </button>
       </div>
     );

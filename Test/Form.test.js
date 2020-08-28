@@ -35,13 +35,16 @@ describe('< Form Componentini />', () => {
 //div içinde 2 element bulunmalıdır.
 describe('< Form Componentini state işlemleri />', () => {
 
-  formWrapper.setState({ definations:"formdenemestate" });
+  /*formWrapper.setState({ definations:"formdenemestate" });
   it('Form componentte definations elemanı olmalı', () => 
   {
     assert.equal(formWrapper.state().definations,"formdenemestate");
-  });
+  });*/
+
   //assert.equal(formWrapper.find("input").text(),"formdenemestate");
   formWrapper.find('input').simulate("change", { target: { value: "formdenemestate" }})
 
+  assert.equal(formWrapper.state().definations,"formdenemestate");
+  //console.log(formWrapper.state().definations);
 
 });

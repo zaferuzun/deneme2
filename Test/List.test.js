@@ -32,7 +32,7 @@ copyProps(window,global);
 
 //div içinde table elementleri bulunmalıdır.
 describe('< List Componentini  />', () => {
-  var listWrapper = shallow(<List includedProp="Success!"/>);
+  var listWrapper = shallow(<List/>);
 
   // 1 adet table elementi bulunmalıdır.
   it('table elementi bulunmaktadır', () => 
@@ -64,7 +64,7 @@ describe('< List2 Componentini Props  />', () => {
       marked:"seçildi"
     }
     ];
-    var listWrapper2 = mount(<List listArray ={listArray}/>);
+    var listWrapper2 = mount(<List listArray ={listArray} />);
 
   it('App  props olarak listArray gelmelidir.', () => 
   {
@@ -88,16 +88,38 @@ describe('< List2 Componentini Props  />', () => {
     it('td elementi bulunmaktadır', () => 
     {
       
-      assert.equal(listWrapper2.find('td').length,2);
+      assert.equal(listWrapper2.find('td').length,3);
   
     });
+    it('button elementi bulunmaktadır', () => 
+    {
+      
+      assert.equal(listWrapper2.find('button').length,1);
+  
+    });
+    it('button elementi *Sil* dir bulunmaktadır', () => 
+    {
+      
+      assert.equal(listWrapper2.find('button').text(),"Sil");
+  
+    });/*
+    var listWrapper3 = mount(<App/>);
 
+    
+    it('button elementi valuesi taskid dir', () => 
+    {
+      listWrapper3.find("List").find('button').simulate("click")
+
+      assert.equal(listWrapper3.state().id,1);
+    });*/
+
+/*
     listWrapper2.props().listArray.push({
       key:2,
       definations:"deneme2",
       marked:"seçildi2"
-    });
-
+    });*/
+/* 
     it('App Componentinden props olarak listArray gelmelidir.', () => 
     {
       //console.log(listWrapper.includedProp.listArray[0].definations);
@@ -106,7 +128,7 @@ describe('< List2 Componentini Props  />', () => {
       assert.equal(listWrapper2.props().listArray[1].marked,"seçildi2");
   
   
-    });
+    });*/
 /*
     listWrapper2.props().listArray.push({
       key:2,
