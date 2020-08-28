@@ -52,7 +52,7 @@ getMarkedId(getMarked)
 }
 getTasks()
 {
-  axios.get(`https://web-paragaranti-pubsub.foreks.com/web-services/securities?key=A&index=&exchangeGroupFilter=BIST.E&extendedResult=true`)
+  axios.get(`localhost:8080/tasks`)
   .then(res => {
     const persons = res.data;
     //this.state.listArray=persons;
